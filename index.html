@@ -271,6 +271,7 @@ input[type="range"].styled-slider::-moz-range-thumb{width:28px;height:28px;borde
         <div class="form-group"><label class="form-label" for="phone">Phone <span class="req">*</span></label><input type="tel" class="form-input" id="phone" data-field="phone" inputmode="numeric" oninput="formatPhone(this)" maxlength="14" placeholder="(555) 123-4567" autocomplete="tel"><div class="field-error-msg" role="alert">Required</div></div>
       </div>
       <div class="form-group"><label class="form-label" for="email">Email <span class="opt-tag">(optional)</span></label><input type="email" class="form-input" id="email" data-field="email" placeholder="you@example.com" autocomplete="email"><div class="field-error-msg" role="alert">Valid email required</div></div>
+      <div class="form-group"><label class="form-label">Sex <span class="req">*</span></label><div class="chips-grid"><button type="button" class="chip" data-chip="Female" onclick="selectSingleChip(this,'sex')">Female</button><button type="button" class="chip" data-chip="Male" onclick="selectSingleChip(this,'sex')">Male</button><button type="button" class="chip" data-chip="Other" onclick="selectSingleChip(this,'sex')">Other</button><button type="button" class="chip" data-chip="Prefer not to answer" onclick="selectSingleChip(this,'sex')">Prefer not to answer</button></div><input type="hidden" id="sex" data-field="sex"><div class="field-error-msg" role="alert">Please select an option</div></div>
       <div class="form-group"><label class="form-label" for="home_address">Home Address <span class="req">*</span></label><input type="text" class="form-input" id="home_address" data-field="home_address" placeholder="Street address" autocomplete="street-address"><div class="field-error-msg" role="alert">Required</div></div>
       <div class="form-row-3">
         <div class="form-group"><label class="form-label" for="city">City <span class="req">*</span></label><input type="text" class="form-input" id="city" list="cityList" data-field="city" placeholder="City" autocomplete="address-level2"><datalist id="cityList"></datalist><div class="field-error-msg" role="alert">Required</div></div>
@@ -2003,7 +2004,7 @@ function loadSaved(){
 function showSavedToast(){const toast=document.getElementById('savedToast');clearTimeout(savedToastTimer);gsap.to(toast,{opacity:1,y:0,duration:.3,ease:'power2.out'});savedToastTimer=setTimeout(()=>gsap.to(toast,{opacity:0,y:80,duration:.3,ease:'power2.in'}),1500)}
 
 // ═══ VALIDATION ═══
-const REQ={1:['first_name','last_name','dateDOB','home_address','city','state','phone'],
+const REQ={1:['first_name','last_name','dateDOB','home_address','city','state','phone',{id:'sex',type:'chips_hidden'}],
   2:[{id:'emergency_contact_name'},{id:'emergency_contact_phone'},{id:'emergency_contact_relationship',type:'chips_hidden'}],
   3:[{id:'signature',type:'sig'},{id:'legalConfirm',type:'checkbox'}],4:[{id:'suicidal_thoughts',type:'toggle'},{id:'reasonChips',type:'chips'}],
   5:[{id:'education_level'},{id:'employment_status'},{id:'relationship_status',type:'chips_hidden'},{id:'current_household',type:'chips_or_text'}]};
@@ -2360,6 +2361,7 @@ function buildPayload(){
     first_name: formData.first_name || '',
     last_name: formData.last_name || '',
     dateDOB: formData.dateDOB || '',
+    sex: formData.sex || '',
     social_security_number: formData.social_security_number || '',
     home_address: formData.home_address || '',
     city: formData.city || '',
