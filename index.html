@@ -1327,17 +1327,17 @@ input[type="range"].styled-slider::-moz-range-thumb{width:28px;height:28px;borde
     </div>
     <!-- Witness Section -->
     <div class="form-section">
-      <div class="form-section-title">Witness</div>
+      <div class="form-section-title">STAFF</div>
       <p style="font-size:.88rem;color:var(--t2);line-height:1.6;margin-bottom:16px">A witness must sign below to confirm the patient's identity and consent.</p>
       <div class="form-group">
-        <label class="form-label" for="witness_name">Witness Name <span class="req-tag">*</span></label>
-        <input type="text" class="form-input" id="witness_name" data-field="witness_name" placeholder="Full name of witness" autocomplete="off">
-        <div class="field-error-msg" role="alert">Witness name is required</div>
+        <label class="form-label" for="witness_name">Staff Name <span class="req-tag">*</span></label>
+        <input type="text" class="form-input" id="witness_name" data-field="witness_name" placeholder="Full name of staff member" autocomplete="off">
+        <div class="field-error-msg" role="alert">Staff name is required</div>
       </div>
       <div class="form-group">
-        <label class="form-label">Witness Signature <span class="req-tag">*</span></label>
+        <label class="form-label">Staff Signature <span class="req-tag">*</span></label>
         <div class="signature-wrapper" id="sigWrapperWitness">
-          <span class="signature-placeholder">Witness signs here</span>
+          <span class="signature-placeholder">Staff member  signs here</span>
           <canvas id="sigCanvasWitness"></canvas>
           <div class="signature-actions"><button type="button" class="btn-clear-sig" onclick="clearWitnessSignature()">↺ Clear</button><span class="sig-hint">Sign with mouse or finger</span></div>
         </div>
